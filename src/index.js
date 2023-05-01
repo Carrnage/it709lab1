@@ -6,6 +6,7 @@ import Nav from './shared/Nav';
 import Home from './pages/Home'
 import Store from './pages/Storefront'
 import About from './pages/About'
+import { Card } from '@nextui-org/react';
 
 const router = createBrowserRouter ([
   {

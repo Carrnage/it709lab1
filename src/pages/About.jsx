@@ -1,4 +1,4 @@
-import { Container, Card, Row, Text, Col, useTheme } from "@nextui-org/react";
+import { Container, Card, Row, Text, Col } from "@nextui-org/react";
 
 function About() {
     return (
@@ -6,14 +6,14 @@ function About() {
             <Container gap={3}>
                 <Row gap={3}>
                     <Col >
-                    <Card>
-                    <Card.Body css={{bgColor:'$blue800'}}>
-                    <Text style={{ color:'gold' }}>iugv</Text>
-                    </Card.Body>
-                    </Card>
+                        <Card>
+                        <Card.Body css={{bgColor:'$blue800'}}>
+                        <Text style={{ color:'gold'}}>iugv</Text>
+                        </Card.Body>
+                        </Card>
                     </Col>
                     <Col>
-                    <Text>sfdggj</Text>
+                        <Text>sfdggj</Text>
                     </Col>
                 </Row>
             </Container>
