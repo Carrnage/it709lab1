@@ -1,4 +1,5 @@
-import { Container, Card, Row, Text, Col } from "@nextui-org/react";
+import { Container, Row, Text, Col } from "@nextui-org/react";
+
 
 function Home() {
     return (
@@ -12,6 +13,7 @@ function Home() {
                     <Text>bsdf</Text>
                     </Col>
                 </Row>
+
             </Container>
         </div>
     );

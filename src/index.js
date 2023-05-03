@@ -6,7 +6,7 @@ import Nav from './shared/Nav';
 import Home from './pages/Home'
 import Store from './pages/Storefront'
 import About from './pages/About'
-import { Card } from '@nextui-org/react';
+import Cart from './shared/Cart';
 
 const router = createBrowserRouter ([
   {
@@ -36,6 +36,8 @@ root.render(
     <NavLink to={'/About'}>
     </NavLink>
     </RouterProvider>
+    <Cart /> 
   </React.StrictMode>
+  
 );
 
