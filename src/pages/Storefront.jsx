@@ -1,9 +1,8 @@
-import { Grid , Card, Row, Text, Col, Button, Spacer } from "@nextui-org/react";
-import { useState } from "react";
+import { Grid , Card, Text, Button, Badge } from "@nextui-org/react";
+import { Link } from "react-router-dom";
 
 
 function Store() {
-    const [itemCount, setItemCount] = useState("99")
     return (
         <div>
             <Grid.Container gap={1} justify="center">
@@ -11,13 +10,15 @@ function Store() {
                     <Card>
                         <Card.Body>
                             <Text>
-                                hello
+                                <Link/>
                             </Text>
                         </Card.Body>
                         <Card.Footer>
-                            <Button auto onclick={() => {setItemCount(itemCount-1)}}>
-                                {itemCount}
-                            </Button>
+                            <Badge content>
+                                <Button auto>
+                                    Add to Cart
+                                </Button>
+                            </Badge>
                         </Card.Footer>
                     </Card>
                 </Grid>
@@ -25,13 +26,15 @@ function Store() {
                     <Card>
                         <Card.Body>
                             <Text>
-                                hello
+                                Raspberry Pi
                             </Text>
                         </Card.Body>
                         <Card.Footer>
-                            <Button auto onclick={() => {setItemCount(itemCount-1)}}>
-                                click me
-                            </Button>
+                        <Badge content>
+                                <Button auto>
+                                    Add to Cart
+                                </Button>
+                            </Badge>
                         </Card.Footer>
                     </Card>
                 </Grid>
@@ -39,13 +42,15 @@ function Store() {
                     <Card>
                         <Card.Body>
                             <Text>
-                                hello
+                                Pecan Pi
                             </Text>
                         </Card.Body>
                         <Card.Footer>
-                            <Button auto onclick={() => {setItemCount(itemCount-1)}}>
-                                click me
+                        <Badge content>
+                            <Button auto>
+                                Add to Cart
                             </Button>
+                        </Badge>
                         </Card.Footer>
                     </Card>
                 </Grid>
@@ -53,13 +58,15 @@ function Store() {
                     <Card>
                         <Card.Body>
                             <Text>
-                                hello
+                                Kiwifruit Pi
                             </Text>
                         </Card.Body>
                         <Card.Footer>
-                            <Button auto onclick={() => {setItemCount(itemCount-1)}}>
-                                click me
+                        <Badge content>
+                            <Button auto>
+                                Add to Cart
                             </Button>
+                        </Badge>
                         </Card.Footer>
                     </Card>
                 </Grid>
@@ -67,7 +74,6 @@ function Store() {
         </div>
     );
 }
-
 
 
 export default Store;

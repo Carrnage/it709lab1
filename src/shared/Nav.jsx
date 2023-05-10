@@ -1,4 +1,5 @@
-import { Navbar } from "@nextui-org/react";
+import { Navbar, Badge, Button } from "@nextui-org/react";
+import { Buy } from "react-iconly";
 
 function Nav() {
     return (
@@ -15,6 +16,11 @@ function Nav() {
                         About
                 </Navbar.Link>
             </Navbar.Content>
+            <Badge color={"error"} content="5" showSkeleton>
+            <Button auto bordered icon={<Buy/>} filled>
+            </Button>
+        </Badge>
+
         </Navbar>
     </div>
 );
