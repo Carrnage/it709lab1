@@ -1,8 +1,16 @@
 import { Grid , Card, Text, Button, Badge } from "@nextui-org/react";
+import { Children, useState } from "react";
 import { Link } from "react-router-dom";
 
-
 function Store() {
+    const [Stock, setStock] = useState({
+        pieStock:10,
+        piePrice:0.75,
+        appleStock:100,
+        applePrice:1.50,
+        fishStock:5,
+        fishPrice:1000
+    });
     return (
         <div>
             <Grid.Container gap={1} justify="center">
@@ -10,11 +18,11 @@ function Store() {
                     <Card>
                         <Card.Body>
                             <Text>
-                                <Link/>
+                                pie
                             </Text>
                         </Card.Body>
                         <Card.Footer>
-                            <Badge content>
+                            <Badge content={pieStock} >
                                 <Button auto>
                                     Add to Cart
                                 </Button>
