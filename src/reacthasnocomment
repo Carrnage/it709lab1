@@ -1,0 +1,48 @@
+                <Grid>
+                    <Card>
+                        <Card.Body>
+                            <Text>
+                                Raspberry Pi
+                            </Text>
+                        </Card.Body>
+                        <Card.Footer>
+                        <Badge content>
+                                <Button auto>
+                                    Add to Cart
+                                </Button>
+                            </Badge>
+                        </Card.Footer>
+                    </Card>
+                </Grid>
+                <Grid>
+                    <Card>
+                        <Card.Body>
+                            <Text>
+                                Pecan Pi
+                            </Text>
+                        </Card.Body>
+                        <Card.Footer>
+                        <Badge content>
+                            <Button auto>
+                                Add to Cart
+                            </Button>
+                        </Badge>
+                        </Card.Footer>
+                    </Card>
+                </Grid>
+                <Grid>
+                    <Card>
+                        <Card.Body>
+                            <Text>
+                                Kiwifruit Pi
+                            </Text>
+                        </Card.Body>
+                        <Card.Footer>
+                        <Badge content>
+                            <Button auto>
+                                Add to Cart
+                            </Button>
+                        </Badge>
+                        </Card.Footer>
+                    </Card>
+                </Grid>
