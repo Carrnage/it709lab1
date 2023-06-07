@@ -32,6 +32,9 @@ function Store() {
     
     const handleClick = (k) => {
         console.log(k.name)
+        var c=k.stock-1
+        console.log(c)
+
     }
 
     return (
