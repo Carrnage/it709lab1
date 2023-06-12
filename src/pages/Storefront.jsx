@@ -9,7 +9,7 @@ function Store() {
         fishCart:0
     });
 
-    const ItemArray = [
+    const [Items, setItems] = useState([
         {
             id:0,
             name: "Pie",
@@ -27,20 +27,20 @@ function Store() {
             stock: 3
     
         }
-    ]
-    const [Items, setItems] = useState({ItemArray});
+    ]);
     
     const handleClick = (k) => {
-        console.log(k.name)
-        var c=k.stock-1
-        console.log(c)
-
+        var c =(k.stock)
+        c++
+        k.stock=c
+        setItems([...Items])
+        console.log(Items[k.id])
     }
 
     return (
         <div>
             <Grid.Container>
-                {ItemArray.map( ( k) => 
+                {Items.map( ( k) => 
                 <Grid key={k}>
                     <Card>
                         <Card.Body>
