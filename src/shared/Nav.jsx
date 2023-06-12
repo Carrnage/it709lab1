@@ -1,7 +1,10 @@
 import { Navbar, Badge, Button } from "@nextui-org/react";
 import { Buy } from "react-iconly";
+import { Store } from "../pages/Storefront"
+import { useContext } from "react";
 
 function Nav() {
+    const useCart = useContext(cartTotal)
     return (
     <div>
         <Navbar isBordered variant={"sticky"}>
@@ -16,7 +19,7 @@ function Nav() {
                         About
                 </Navbar.Link>
             </Navbar.Content>
-            <Badge color={"error"} content="5" showSkeleton>
+            <Badge color={"error"} content={useCart} showSkeleton>
             <Button auto bordered icon={<Buy/>} filled>
             </Button>
         </Badge>

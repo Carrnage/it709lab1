@@ -1,14 +1,15 @@
 import { Grid , Card, Text, Button, Badge } from "@nextui-org/react";
 import { Children, useState } from "react";
 import { Link } from "react-router-dom";
+import { createContext } from "react";
 
-function Store() {
+export function Store({cartTotal}) {
     const [Cart, setCart] = useState({
         pieCart:0,
         appleCart:0,
         fishCart:0
     });
-
+    const cartTotal = createContext(Cart.appleCart+Cart.pieCart+Cart.fishCart);
     const [Items, setItems] = useState([
         {
             id:0,
@@ -62,5 +63,4 @@ function Store() {
         </div>
     );
 }
-
 export default Store;
