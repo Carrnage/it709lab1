@@ -24,7 +24,7 @@ export function Store() {
       bought: 0,
     },
   ]);
-  //    const cartTotal = createContext(Cart.appleCart+Cart.pieCart+Cart.fishCart);
+  var cartTotal = Cart[0].bought+Cart[1].bought+Cart[2].bought;
   const [Items, setItems] = useState([
     {
       id: 0,
@@ -77,22 +77,24 @@ export function Store() {
               </Card.Footer>
             </Card>
           </Grid>
-        ))}
-        { Cart.filter(Cart => {return Cart.bought === 0})>0 ? 
+        ))};
+        { cartTotal>0 ? 
         <Card>
         <Card.Body>
         {Cart.map((b) => (
           <Grid key={b}>
-            <Card>
+            {b.bought>0 ? 
+            <Card >
               <Card.Body>
                 <Text>{b.bought}</Text>
               </Card.Body>
             </Card>
+            : null }
           </Grid>
         ))}
         </Card.Body>
         </Card>
-        : null }
+        : null };
       </Grid.Container>
     </div>
   );
