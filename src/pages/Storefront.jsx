@@ -8,19 +8,19 @@ export function Store() {
     {
       id: 0,
       name: "Pie",
-      cost: "$5.00",
+      cost: 5.00,
       bought: 0,
     },
     {
       id: 1,
       name: "Apple",
-      cost: "$50.00",
+      cost: 50.00,
       bought: 0,
     },
     {
       id: 2,
       name: "Fish",
-      cost: "$500.00",
+      cost: 500.00,
       bought: 0,
     },
   ]);
@@ -29,19 +29,19 @@ export function Store() {
     {
       id: 0,
       name: "Pie",
-      cost: "$5.00",
+      cost: 5.00,
       stock: 5,
     },
     {
       id: 1,
       name: "Apple",
-      cost: "$50.00",
+      cost: 50.00,
       stock: 10,
     },
     {
       id: 2,
       name: "Fish",
-      cost: "$500.00",
+      cost: 500.00,
       stock: 3,
     },
   ]);
@@ -86,13 +86,25 @@ export function Store() {
             {b.bought>0 ? 
             <Card >
               <Card.Body>
-                <Text>{b.bought}</Text>
+                <Badge content={b.bought}>
+                <Text>{b.name}</Text>
+                </Badge>
               </Card.Body>
             </Card>
             : null }
           </Grid>
         ))}
         </Card.Body>
+        <Card.Footer>
+            <Text>
+                TOTAL:${((Cart[0].bought)*(Cart[0].cost))+((Cart[1].bought)*(Cart[1].cost))+((Cart[2].bought)*(Cart[2].cost))}
+            </Text>
+        <Badge content={cartTotal}>
+            <Button>
+                Buy
+            </Button>
+        </Badge>
+        </Card.Footer>
         </Card>
         : null };
       </Grid.Container>
