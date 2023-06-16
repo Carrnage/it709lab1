@@ -1,66 +1,100 @@
-import { Grid , Card, Text, Button, Badge } from "@nextui-org/react";
+import { Grid, Card, Text, Button, Badge, Col } from "@nextui-org/react";
 import { Children, useState } from "react";
 import { Link } from "react-router-dom";
 import { createContext } from "react";
 
-export function Store({cartTotal}) {
-    const [Cart, setCart] = useState({
-        pieCart:0,
-        appleCart:0,
-        fishCart:0
-    });
-    const cartTotal = createContext(Cart.appleCart+Cart.pieCart+Cart.fishCart);
-    const [Items, setItems] = useState([
-        {
-            id:0,
-            name: "Pie",
-            cost: "$5.00",
-            stock: 5
-        }, {
-            id:1,
-            name: "Apple",
-            cost: "$50.00",
-            stock: 10
-        }, {
-            id:2,
-            name: "Fish",
-            cost: "$500.00",
-            stock: 3
-    
-        }
-    ]);
-    
-    const handleClick = (k) => {
-        var c =(k.stock)
-        c++
-        k.stock=c
-        setItems([...Items])
-        console.log(Items[k.id])
-    }
-
-    return (
-        <div>
-            <Grid.Container>
-                {Items.map( ( k) => 
-                <Grid key={k}>
-                    <Card>
-                        <Card.Body>
-                            <Text>
-                              {k.name}
-                            </Text>
-                        </Card.Body>
-                        <Card.Footer>
-                            <Badge content={k.stock}>
-                                <Button onPress={() => handleClick(k)}>
-                                    Add to Cart {k.cost}
-                                </Button>
-                            </Badge>
-                        </Card.Footer>
-                    </Card>
-                </Grid>
-                )}
-            </Grid.Container>
-        </div>
-    );
+export function Store() {
+  const [Cart, setCart] = useState([
+    {
+      id: 0,
+      name: "Pie",
+      cost: "$5.00",
+      bought: 0,
+    },
+    {
+      id: 1,
+      name: "Apple",
+      cost: "$50.00",
+      bought: 0,
+    },
+    {
+      id: 2,
+      name: "Fish",
+      cost: "$500.00",
+      bought: 0,
+    },
+  ]);
+  //    const cartTotal = createContext(Cart.appleCart+Cart.pieCart+Cart.fishCart);
+  const [Items, setItems] = useState([
+    {
+      id: 0,
+      name: "Pie",
+      cost: "$5.00",
+      stock: 5,
+    },
+    {
+      id: 1,
+      name: "Apple",
+      cost: "$50.00",
+      stock: 10,
+    },
+    {
+      id: 2,
+      name: "Fish",
+      cost: "$500.00",
+      stock: 3,
+    },
+  ]);
+  const handleClick = (k) => {
+    var c = k.stock;
+    var Uid = k.id;
+    c--;
+    var checkout = Cart[Uid];
+    console.log(checkout);
+    var z = checkout.bought;
+    z++;
+    console.log(z);
+    Cart[Uid].bought = z;
+    k.stock = c;
+    setItems([...Items]);
+    setCart([...Cart]);
+  };
+  return (
+    <div>
+      <Grid.Container>
+        {Items.map((k) => (
+          <Grid key={k}>
+            <Card>
+              <Card.Body>
+                <Text>{k.name}</Text>
+              </Card.Body>
+              <Card.Footer>
+                <Badge content={k.stock}>
+                  <Button disabled={k.stock < 1} onPress={() => handleClick(k)}>
+                    Add to Cart {k.cost}
+                  </Button>
+                </Badge>
+              </Card.Footer>
+            </Card>
+          </Grid>
+        ))}
+        { Cart.filter(Cart => {return Cart.bought === 0})>0 ? 
+        <Card>
+        <Card.Body>
+        {Cart.map((b) => (
+          <Grid key={b}>
+            <Card>
+              <Card.Body>
+                <Text>{b.bought}</Text>
+              </Card.Body>
+            </Card>
+          </Grid>
+        ))}
+        </Card.Body>
+        </Card>
+        : null }
+      </Grid.Container>
+    </div>
+  );
 }
 export default Store;
