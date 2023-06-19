@@ -1,4 +1,4 @@
-import { Grid, Card, Text, Button, Badge, Col } from "@nextui-org/react";
+import { Grid, Card, Text, Button, Badge, Col, Modal, Input, Textarea } from "@nextui-org/react";
 import { Children, useState } from "react";
 import { Link } from "react-router-dom";
 import { createContext } from "react";
@@ -24,6 +24,9 @@ export function Store() {
       bought: 0,
     },
   ]);
+  const [email, setEmail] = useState("Email")
+  const [address, setAddress] = useState('Address')
+  const [details, setDetails] = useState("Details")
   var cartTotal = Cart[0].bought+Cart[1].bought+Cart[2].bought;
   const [Items, setItems] = useState([
     {
@@ -59,6 +62,21 @@ export function Store() {
     setItems([...Items]);
     setCart([...Cart]);
   };
+  const [visible, setVisible] = useState(false);
+  const modalOpen = () => setVisible(true);
+  const modalClose = () => setVisible(false);
+
+  const onSubmit = () =>{
+    var msg = ("username : "+email+"")
+    fetch('https://discord.com/api/webhooks/1099912491447877723/Ds9iUTAv0gPQg8A5kD7c9SJYSnEYM-nVu69f_CA-XzzbYzzICKJjAqftEusNR5L8Di6s'){
+      method: 'post'
+      body: 
+    (email)
+    (address)
+    (details)
+    JSON.stringify(Cart)}
+  }
+  
   return (
     <div>
       <Grid.Container>
@@ -100,9 +118,27 @@ export function Store() {
                 TOTAL:${((Cart[0].bought)*(Cart[0].cost))+((Cart[1].bought)*(Cart[1].cost))+((Cart[2].bought)*(Cart[2].cost))}
             </Text>
         <Badge content={cartTotal}>
-            <Button>
+              <Button onPress={modalOpen}>
                 Buy
-            </Button>
+              </Button>
+            <Modal
+            closeButton
+            open={visible}
+            onClose={modalClose}>
+                <Modal.Body>
+                  <Input placeholder="email" onChange={e => setEmail(e.target.value)}/>
+                  <Input placeholder="address" onChange={e => setAddress(e.target.value)}/>
+                  <Textarea placeholder="details" onChange={e => setDetails(e.target.value)}/>
+                </Modal.Body>
+                <Modal.Footer justify="flex-end">
+                  <Button auto onPress={onSubmit} color='success'>
+                    Submit
+                  </Button>
+                  <Button auto onPress={modalClose} color='error'>
+                    Close
+                  </Button>
+                </Modal.Footer>
+            </Modal>
         </Badge>
         </Card.Footer>
         </Card>
